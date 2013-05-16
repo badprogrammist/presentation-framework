@@ -7,7 +7,7 @@
  */
 package framework.core.executors
 {
-    import framework.component.Component;
+    import framework.entity.component.Component;
     import framework.core.communication.Message;
     import framework.core.communication.listener.IListener;
 

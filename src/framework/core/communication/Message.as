@@ -7,7 +7,7 @@
  */
 package framework.core.communication
 {
-    import framework.component.Component;
+    import framework.entity.component.Component;
     import framework.core.communication.sender.ISender;
 
     public class Message

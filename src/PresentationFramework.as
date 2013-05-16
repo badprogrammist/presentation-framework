@@ -4,26 +4,26 @@ package
     import flash.filters.DropShadowFilter;
     import flash.filters.GlowFilter;
 
-    import framework.component.animation.preset.Alpha;
-    import framework.component.animation.preset.LeftRight;
-    import framework.component.Component;
-    import framework.component.animation.preset.Timeline;
-    import framework.component.render.base.presets.filter.Filter;
-    import framework.component.render.manager.IRenderManager;
-    import framework.component.render.manager.RenderManager;
-    import framework.component.render.base.presets.border.IBorder;
-    import framework.component.render.base.presets.border.SolidBorder;
-    import framework.component.render.base.presets.fill.IFill;
-    import framework.component.render.base.presets.fill.SolidFill;
-    import framework.component.render.base.presets.position.IPosition;
-    import framework.component.render.base.presets.position.Position;
-    import framework.component.render.base.presets.shape.IShape;
-    import framework.component.render.base.presets.shape.RectangleShape;
-    import framework.component.render.base.presets.size.ISize;
-    import framework.component.render.base.presets.size.Size;
-    import framework.component.view.ExtendedSprite;
-    import framework.component.view.IMediator;
-    import framework.component.view.Mediator;
+    import framework.entity.animation.preset.Alpha;
+    import framework.entity.animation.preset.LeftRight;
+    import framework.entity.component.Component;
+    import framework.entity.animation.preset.Timeline;
+    import framework.entity.component.render.base.presets.filter.Filter;
+    import framework.entity.component.render.manager.IRenderManager;
+    import framework.entity.component.render.manager.RenderManager;
+    import framework.entity.component.render.base.presets.border.IBorder;
+    import framework.entity.component.render.base.presets.border.SolidBorder;
+    import framework.entity.component.render.base.presets.fill.IFill;
+    import framework.entity.component.render.base.presets.fill.SolidFill;
+    import framework.entity.component.render.base.presets.position.IPosition;
+    import framework.entity.component.render.base.presets.position.Position;
+    import framework.entity.component.render.base.presets.shape.IShape;
+    import framework.entity.component.render.base.presets.shape.RectangleShape;
+    import framework.entity.component.render.base.presets.size.ISize;
+    import framework.entity.component.render.base.presets.size.Size;
+    import framework.entity.component.view.ExtendedSprite;
+    import framework.entity.component.view.IMediator;
+    import framework.entity.component.view.Mediator;
     import framework.core.communication.listener.IListener;
     import framework.core.communication.publisher.Publisher;
     import framework.core.executors.PlayAnimation;
@@ -35,8 +35,8 @@ package
 
     import framework.core.messages.view.MouseOverMessage;
     import framework.core.tree.Tree;
-    import framework.slide.Slide;
-    import framework.slide.managers.group.presets.VerticalGroup;
+    import framework.entity.slide.Slide;
+    import framework.entity.group.presets.VerticalGroup;
 
     public class PresentationFramework extends Sprite
     {
@@ -98,13 +98,13 @@ package
             tree.AddNode("ROOT","c2");
             tree.AddNode("ROOT","c1");
 
-            var slide:Slide = new Slide();
+            var slide:Slide = new Slide("slide_1");
             slide.componentManager.AddComponent(c1);
             slide.componentManager.AddComponent(c2);
             slide.componentManager.AddComponent(root);
             slide.componentManager.tree = tree;
 
-            slide.groupManager.AddGroup("ROOT",new VerticalGroup(5));
+            slide.groupManager.AddGroup("ROOT",new VerticalGroup("vertical_group",5));
 
             slide.Draw();
         }
