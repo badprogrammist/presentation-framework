@@ -12,5 +12,7 @@ package framework.repository
     {
         function AddEntity(entity:EntityBase):void;
         function GetEntity(id:String):EntityBase;
+        function isEmpty():Boolean;
+        function get size():int;
     }
 }

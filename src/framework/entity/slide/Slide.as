@@ -58,6 +58,11 @@ package framework.entity.slide
             _groupManager.Process();
         }
 
+        public function Clear():void
+        {
+
+        }
+
 
     }
 }

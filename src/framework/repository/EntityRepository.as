@@ -27,5 +27,15 @@ package framework.repository
         {
             return _entities.itemFor(id);
         }
+
+        public function isEmpty():Boolean
+        {
+            return _entities.size == 0;
+        }
+
+        public function get size():int
+        {
+            return _entities.size;
+        }
     }
 }
