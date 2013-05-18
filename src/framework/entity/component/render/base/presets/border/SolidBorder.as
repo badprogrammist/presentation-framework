@@ -9,11 +9,10 @@ package framework.entity.component.render.base.presets.border
 {
     import flash.display.Sprite;
 
+    import framework.core.IPrototype;
     import framework.entity.component.Component;
     import framework.entity.component.render.base.RenderBase;
-    import framework.entity.component.render.base.RenderBase;
     import framework.entity.component.render.base.presets.size.ISize;
-    import framework.core.IPrototype;
 
     public class SolidBorder extends RenderBase implements IBorder
     {

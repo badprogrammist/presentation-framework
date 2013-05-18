@@ -7,9 +7,9 @@
  */
 package framework.entity.component.render.manager
 {
+    import framework.core.IPrototype;
     import framework.entity.component.Component;
     import framework.entity.component.render.base.IRenderBase;
-    import framework.core.IPrototype;
 
     import org.as3commons.collections.SortedSet;
     import org.as3commons.collections.framework.IIterator;

@@ -7,9 +7,9 @@
  */
 package framework.entity.component.render.base.presets.size
 {
+    import framework.core.IPrototype;
     import framework.entity.component.Component;
     import framework.entity.component.render.base.RenderBase;
-    import framework.core.IPrototype;
 
     public class Size extends RenderBase implements ISize
     {

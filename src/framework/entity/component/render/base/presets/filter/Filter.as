@@ -7,12 +7,11 @@
  */
 package framework.entity.component.render.base.presets.filter
 {
-    import flash.display.Sprite;
     import flash.filters.BitmapFilter;
 
+    import framework.core.IPrototype;
     import framework.entity.component.Component;
     import framework.entity.component.render.base.RenderBase;
-    import framework.core.IPrototype;
 
     public class Filter extends RenderBase implements IFilter
     {

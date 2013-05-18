@@ -5,7 +5,7 @@
  * Time: 15:30
  * Mail: badprogrammist@gmail.com
  */
-package framework.core.executors
+package framework.core.executors.animation
 {
     import framework.entity.component.Component;
     import framework.core.communication.Message;

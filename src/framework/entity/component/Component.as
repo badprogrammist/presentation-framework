@@ -59,7 +59,7 @@ package framework.entity.component
         {
             if (_listener)
             {
-                var componentMessage:Message = message.Clone();
+                var componentMessage:Message = message.Clone() as Message;
                 componentMessage.component = this;
                 _listener.Listen(componentMessage);
             }

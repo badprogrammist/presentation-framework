@@ -6,7 +6,9 @@
  */
 package framework.entity
 {
-    public class EntityBase
+    import framework.core.IIdentified;
+
+    public class EntityBase implements IIdentified
     {
         private var _id:String;
 

@@ -9,10 +9,10 @@ package framework.entity.component.render.base.presets.fill
 {
     import flash.display.Sprite;
 
+    import framework.core.IPrototype;
     import framework.entity.component.Component;
     import framework.entity.component.render.base.RenderBase;
     import framework.entity.component.render.base.presets.size.ISize;
-    import framework.core.IPrototype;
 
     public class SolidFill extends RenderBase implements IFill
     {

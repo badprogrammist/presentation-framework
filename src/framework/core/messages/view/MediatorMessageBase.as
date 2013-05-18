@@ -7,13 +7,14 @@
  */
 package framework.core.messages.view
 {
+    import framework.core.IPrototype;
     import framework.core.communication.Message;
     import framework.core.communication.sender.ISender;
 
-    public class MediatorMessage extends Message
+    public class MediatorMessageBase extends Message
     {
         private var _eventType:String;
-        public function MediatorMessage(eventType:String, dispatcher:ISender)
+        public function MediatorMessageBase(eventType:String, dispatcher:ISender)
         {
             _eventType = eventType;
             super(dispatcher);
@@ -24,9 +25,9 @@ package framework.core.messages.view
             return _eventType;
         }
 
-        override public function Clone():Message
+        override public function Clone():IPrototype
         {
-            return new MediatorMessage(eventType,dispatcher);
+            return new MediatorMessageBase(eventType,dispatcher);
         }
 
     }

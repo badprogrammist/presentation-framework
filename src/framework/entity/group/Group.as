@@ -9,14 +9,12 @@ package framework.entity.group
 {
     import flash.display.DisplayObject;
 
-    import framework.entity.EntityBase;
-
-    import framework.entity.component.Component;
     import framework.core.IPrototype;
+    import framework.entity.EntityBase;
+    import framework.entity.component.Component;
     import framework.entity.slide.managers.ComponentManager;
 
     import org.as3commons.collections.framework.IIterator;
-
     import org.as3commons.collections.framework.ISet;
 
     public class Group extends EntityBase implements IGroup

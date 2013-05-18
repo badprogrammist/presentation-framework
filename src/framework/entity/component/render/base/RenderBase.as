@@ -7,8 +7,8 @@
  */
 package framework.entity.component.render.base
 {
-    import framework.entity.component.Component;
     import framework.core.IPrototype;
+    import framework.entity.component.Component;
 
     import org.as3commons.collections.Set;
 

@@ -8,7 +8,7 @@
 package framework.entity.component.view
 {
     import framework.core.communication.Message;
-    import framework.core.messages.view.MediatorMessage;
+    import framework.core.messages.view.MediatorMessageBase;
 
     import flash.display.DisplayObject;
 
@@ -34,14 +34,14 @@ package framework.entity.component.view
 
         public function RegisterMessage(mediatorMessageClass:Class):void
         {
-            var message:MediatorMessage = new mediatorMessageClass(null);
+            var message:MediatorMessageBase = new mediatorMessageClass(null);
             _displayObject.addEventListener(message.eventType,processEvent);
             _eventMap.add(message.eventType,mediatorMessageClass);
         }
 
         public function RemoveMessage(mediatorMessageClass:Class):void
         {
-            var message:MediatorMessage = new mediatorMessageClass(null);
+            var message:MediatorMessageBase = new mediatorMessageClass(null);
             _displayObject.removeEventListener(message.eventType,processEvent);
             _eventMap.removeKey(message.eventType);
         }

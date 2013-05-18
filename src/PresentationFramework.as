@@ -26,8 +26,8 @@ package
     import framework.entity.component.view.Mediator;
     import framework.core.communication.listener.IListener;
     import framework.core.communication.publisher.Publisher;
-    import framework.core.executors.PlayAnimation;
-    import framework.core.executors.ReverseAnimation;
+    import framework.core.executors.animation.PlayAnimation;
+    import framework.core.executors.animation.ReverseAnimation;
 
     import flash.display.Sprite;
 
@@ -49,10 +49,12 @@ package
             var pos:IPosition = new Position(0,0);
             var shape:IShape = new RectangleShape();
             var size:ISize = new Size(20,50,true,false);
+
             var sfilter:BitmapFilter = new DropShadowFilter(0,0,0x111111,1,10,10,1,3);
             var gfilter:BitmapFilter = new GlowFilter(0xFF0000,0.3);
             var shadowFilter:Filter = new Filter(sfilter);
             var glowFilter:Filter = new Filter(gfilter);
+
             var renderManager:IRenderManager = new RenderManager();
             renderManager.AddRenderBase(border);
             renderManager.AddRenderBase(fill);

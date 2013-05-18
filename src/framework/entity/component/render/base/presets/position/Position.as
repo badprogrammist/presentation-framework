@@ -7,9 +7,9 @@
  */
 package framework.entity.component.render.base.presets.position
 {
+    import framework.core.IPrototype;
     import framework.entity.component.Component;
     import framework.entity.component.render.base.RenderBase;
-    import framework.core.IPrototype;
 
     public class Position extends RenderBase implements IPosition
     {

@@ -7,19 +7,19 @@
  */
 package framework.core.messages.view
 {
-    import framework.core.communication.Message;
-    import framework.core.communication.sender.ISender;
-
     import flash.events.MouseEvent;
 
-    public class MouseMoveMessage extends MediatorMessage
+    import framework.core.IPrototype;
+    import framework.core.communication.sender.ISender;
+
+    public class MouseMoveMessage extends MediatorMessageBase
     {
         public function MouseMoveMessage(dispatcher:ISender)
         {
             super(MouseEvent.MOUSE_MOVE, dispatcher);
         }
 
-        override public function Clone():Message
+        override public function Clone():IPrototype
         {
             return new MouseMoveMessage(dispatcher);
         }

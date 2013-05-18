@@ -7,10 +7,11 @@
  */
 package framework.core.communication
 {
-    import framework.entity.component.Component;
+    import framework.core.IPrototype;
     import framework.core.communication.sender.ISender;
+    import framework.entity.component.Component;
 
-    public class Message
+    public class Message implements IPrototype
     {
         private var _dispatcher:ISender;
         private var _component:Component;
@@ -35,7 +36,7 @@ package framework.core.communication
             _component = value;
         }
 
-        public function Clone():Message
+        public function Clone():IPrototype
         {
             return new Message(dispatcher);
         }
