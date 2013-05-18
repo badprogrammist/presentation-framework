@@ -8,56 +8,43 @@
 package framework.core.communication.publisher
 {
     import framework.core.communication.*;
-    import framework.core.communication.publisher.IPublisher;
     import framework.core.communication.listener.IListener;
+
+    import org.as3commons.collections.Map;
+    import org.as3commons.collections.framework.IMapIterator;
 
     public class Publisher implements IPublisher
     {
-        private var _messages:Vector.<Class>;
-        private var _listeners:Vector.<IListener>;
+        private var _listeners:Map;
 
         public function Publisher()
         {
-            _messages = new Vector.<Class>();
-            _listeners = new Vector.<IListener>();
+            _listeners = new Map();
         }
 
         public function Listen(message:Message):void
         {
-            for (var i:uint = 0; i < _messages.length; i++)
+            var iterator:IMapIterator = _listeners.iterator() as IMapIterator;
+            while(iterator.hasNext())
             {
-                if (message is _messages[i])
+                iterator.next();
+                var messageClass:Class = iterator.key;
+                if (message is messageClass)
                 {
-                    _listeners[i].Listen(message);
+                    var listener:IListener = iterator.current;
+                    listener.Listen(message);
                 }
             }
         }
 
-        public function Subscribe(messageClass:Class, listener:IListener):void
+        public function Subscribe(messageClass:Class, listener:IListener):Boolean
         {
-            _messages.push(messageClass);
-            _listeners.push(listener);
+            return _listeners.add(messageClass,listener);
         }
 
-        public function Unsubscribe(listener:IListener):void
+        public function Unsubscribe(listener:IListener):Boolean
         {
-            for (var i:uint = 0; i < _listeners.length; i++)
-            {
-                if (listener == _listeners[i])
-                {
-                    deleteSubscriber(i);
-                    i--;
-                }
-            }
-        }
-
-        private function deleteSubscriber(index:uint):void
-        {
-            if ((index < _messages.length) && (index < _listeners.length))
-            {
-                _messages.slice(index,1);
-                _listeners.slice(index,1);
-            }
+            return _listeners.remove(listener);
         }
 
     }

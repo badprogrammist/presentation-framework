@@ -11,7 +11,7 @@ package framework.core.communication.publisher
 
     public interface IPublisher extends IListener
     {
-        function Subscribe(messageClass:Class, listener:IListener):void;
-        function Unsubscribe(listener:IListener):void;
+        function Subscribe(messageClass:Class, listener:IListener):Boolean;
+        function Unsubscribe(listener:IListener):Boolean;
     }
 }

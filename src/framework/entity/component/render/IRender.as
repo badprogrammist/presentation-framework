@@ -13,6 +13,5 @@ package framework.entity.component.render
     public interface IRender extends IPrototype
     {
         function Process(component:Component):void;
-
     }
 }

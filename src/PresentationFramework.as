@@ -1,14 +1,23 @@
+//TODO The Slide must be done in such way so it could be interpreted as Component
+//TODO Add global executors classes in the area Presentation for the Slide control, especially Drawing and Erasing
+
+
+
+
+
 package
 {
     import flash.filters.BitmapFilter;
     import flash.filters.DropShadowFilter;
     import flash.filters.GlowFilter;
+    import flash.text.TextField;
 
     import framework.entity.animation.preset.Alpha;
     import framework.entity.animation.preset.LeftRight;
     import framework.entity.component.Component;
     import framework.entity.animation.preset.Timeline;
     import framework.entity.component.render.base.presets.filter.Filter;
+    import framework.entity.component.render.base.presets.text.Text;
     import framework.entity.component.render.manager.IRenderManager;
     import framework.entity.component.render.manager.RenderManager;
     import framework.entity.component.render.base.presets.border.IBorder;
@@ -43,7 +52,13 @@ package
         public function PresentationFramework()
         {
             super();
-
+            var textField:TextField = new TextField();
+            textField.text = "This is sample text!";
+            textField.border = true;
+            textField.multiline = true;
+            textField.selectable = false;
+            textField.wordWrap = true;
+            var text:Text = new Text(textField);
             var border:IBorder = new SolidBorder(1,0x111111);
             var fill:IFill = new SolidFill(0x674523,0.3);
             var pos:IPosition = new Position(0,0);
@@ -56,6 +71,7 @@ package
             var glowFilter:Filter = new Filter(gfilter);
 
             var renderManager:IRenderManager = new RenderManager();
+            renderManager.AddRenderBase(text);
             renderManager.AddRenderBase(border);
             renderManager.AddRenderBase(fill);
             renderManager.AddRenderBase(pos);
@@ -77,15 +93,17 @@ package
             sprite1.alpha = 0;
             var mediator1:IMediator = new Mediator(sprite1);
             var publisher:Publisher = new Publisher();
-            publisher.Subscribe(MouseOverMessage,pa);
-            publisher.Subscribe(MouseOutMessage,ra);
+            publisher.Subscribe(MouseOverMessage, pa);
+            publisher.Subscribe(MouseOutMessage, ra);
             var c1:Component = new Component("c1",mediator1,renderManager, publisher, timeline);
 
             var sprite2:ExtendedSprite = new ExtendedSprite();
+
             var mediator2:IMediator = new Mediator(sprite2);
             mediator2.RegisterMessage(MouseOverMessage);
             mediator2.RegisterMessage(MouseOutMessage);
             mediator2.RegisterListener(c1);
+
             var c2:Component = new Component("c2",mediator2,renderManagerClone,null,null);
 
             var rootSprite:ExtendedSprite = new ExtendedSprite();
@@ -112,3 +130,4 @@ package
         }
     }
 }
+//TODO 2) добавление картинок, 3) аудио с управление, 4)свф, 5)видео с управлением, 6)общее управление презентацией
